@@ -42,6 +42,39 @@ h1, h2, h3, h4 {
   font-size: 24px;
 }
 
+/* Reserve button subtle hover */
+.btn-reserve {
+  background: rgba(168, 187, 165, 0.45);
+  transition: background-color 160ms ease, border-color 160ms ease, opacity 160ms ease, letter-spacing 160ms ease;
+  box-shadow: none;
+  position: relative;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+.btn-reserve::after {
+  content: '→';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  opacity: 0;
+  color: #000;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.btn-reserve:hover {
+  background: rgba(168, 187, 165, 0.75); /* plus marqué au hover */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+  letter-spacing: 1px;
+}
+.btn-reserve:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
+.btn-reserve:active {
+  background: rgba(168, 187, 165, 0.5);
+}
+.btn-reserve:focus-visible {
+  outline: 2px solid rgba(168, 187, 165, 0.8);
+  outline-offset: 2px;
+}
+
 /* Hero CTA */
 .btn-hero {
   background: rgba(235, 213, 206, 0.6); /* #EBD5CE */
