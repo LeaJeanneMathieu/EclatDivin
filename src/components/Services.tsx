@@ -21,18 +21,18 @@ export function Services() {
 
         <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 360px)', gap: 96, justifyContent: 'start' }}>
           {services.map((s, i) => (
-            <motion.div key={s.title} className="card" style={{ borderRadius: 0, overflow: 'hidden', width: 360 }} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-              <div style={{ position: 'relative', aspectRatio: '3/5' }}>
+            <motion.div key={s.title} className="card" style={{ borderRadius: 0, overflow: 'hidden', width: 360, cursor: 'pointer' }} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+              <div className="card-media" style={{ position: 'relative', aspectRatio: '3/5' }}>
                 <img src={s.image} alt={s.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,.45), transparent 40%)' }} />
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontFamily: 'Playfair Display', fontSize: 28, textAlign: 'center', letterSpacing: 1 }}>{s.title}</div>
+                <div className="card-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,.45), transparent 40%)' }} />
+                <div className="card-title" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', fontFamily: 'Playfair Display', fontSize: 28, textAlign: 'center', letterSpacing: 1 }}>{s.title}</div>
               </div>
             </motion.div>
           ))}
         </div>
         <div style={{ flex: 1 }} />
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: 96 }}>
-          <button className="btn btn-reserve" style={{ color: '#000000', fontSize: 24, padding: '40px 50px', borderRadius: 0, fontWeight: 50 }}>RESERVE TON MOMENT</button>
+          <button className="btn btn-reserve" style={{ color: '#000000', fontSize: 20, padding: '40px 50px', borderRadius: 0, fontWeight: 50 }}>RESERVE TON MOMENT</button>
         </div>
       </div>
     </section>
