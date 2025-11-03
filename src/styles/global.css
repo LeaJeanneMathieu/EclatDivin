@@ -27,6 +27,11 @@ h1, h2, h3, h4 {
   padding: 64px 24px;
 }
 
+.about-section {
+  background: #EBD5CE;
+  padding-top: 5px;
+}
+
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -110,6 +115,33 @@ h1, h2, h3, h4 {
   overflow: hidden;
   border-radius: 12px;
   background: #fff7ef;
+}
+
+/* Services card hover - natural/professional */
+.card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.card-media img {
+  transition: transform 320ms ease;
+}
+.card:hover .card-media img {
+  transform: scale(1.03);
+}
+.card-overlay {
+  transition: background-color 300ms ease, opacity 300ms ease;
+}
+.card:hover .card-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,.55), transparent 45%);
+}
+.card-title {
+  transition: letter-spacing 220ms ease, opacity 220ms ease;
+}
+.card:hover .card-title {
+  letter-spacing: 1.5px;
 }
 
 .muted { color: var(--muted); }
