@@ -10,7 +10,7 @@
 * { box-sizing: border-box; }
 html {
   overflow-x: hidden;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 html.lenis {
   height: auto;
@@ -189,5 +189,250 @@ header a.nav-link:hover {
 }
 .btn-view-more:active {
   background: rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   GALLERY MODERNE & INNOVANTE AVEC PARALLAX
+   ============================================ */
+
+.gallery-section {
+  padding: 120px 24px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-section .container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Grille - toutes les images sur une ligne */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  max-width: 100%;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+@media (max-width: 1400px) {
+  .gallery-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.gallery-item {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff7ef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  aspect-ratio: 4 / 5;
+  min-height: 400px;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@media (min-width: 1200px) {
+  .gallery-item {
+    min-height: 500px;
+  }
+}
+
+.gallery-item:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px) translateZ(0);
+}
+
+.gallery-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05) translateZ(0);
+}
+
+
+/* ============================================
+   LIGHTBOX MODAL
+   ============================================ */
+
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  cursor: default;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.lightbox-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+.lightbox-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 24px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-nav-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.lightbox-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.lightbox-counter {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 60px 24px;
+    min-height: auto;
+  }
+
+  .gallery-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .gallery-item {
+    max-width: 100%;
+  }
+
+  .lightbox-close {
+    top: -40px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .lightbox-nav {
+    gap: 20px;
+    padding: 10px 16px;
+  }
+
+  .lightbox-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
 }
 
