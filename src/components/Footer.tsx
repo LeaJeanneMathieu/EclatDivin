@@ -2,20 +2,39 @@ import logoFooter from '../../assets/logo-footer.png';
 
 export function Footer() {
   return (
-    <footer className="section" style={{ background: '#d5c1a8' }}>
-      <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', alignItems: 'center', gap: 20 }}>
-        <div>
-          <a href="#" className="muted" style={{ display: 'block' }}>À propos</a>
-          <a href="#" className="muted" style={{ display: 'block' }}>Contact</a>
-          <a href="#" className="muted" style={{ display: 'block' }}>Politique de confidentialité</a>
-        </div>
-        <div style={{ textAlign: 'center' }}>
-          <img src={logoFooter} alt="Éclat Divin" style={{ height: 56 }} />
-        </div>
-        <div style={{ textAlign: 'right' }}>
-          <a href="#" className="muted" style={{ marginLeft: 12 }}>Instagram</a>
-          <a href="#" className="muted" style={{ marginLeft: 12 }}>Pinterest</a>
-          <a href="#" className="muted" style={{ marginLeft: 12 }}>TikTok</a>
+    <footer className="footer-section">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-column">
+            <h3 className="footer-title">Navigation</h3>
+            <nav className="footer-nav">
+              <a href="#about" className="footer-link">À propos</a>
+              <a href="#services" className="footer-link">Services</a>
+              <a href="#contact" className="footer-link">Contact</a>
+              <a href="#book" className="footer-link">Réservation</a>
+            </nav>
+          </div>
+          
+          <div className="footer-separator"></div>
+          
+          <div className="footer-column footer-center-column">
+            <h3 className="footer-title">Suivez-nous</h3>
+            <div className="footer-social">
+              <a href="#" className="footer-link footer-social-link">Instagram</a>
+              <a href="#" className="footer-link footer-social-link">Pinterest</a>
+              <a href="#" className="footer-link footer-social-link">TikTok</a>
+            </div>
+            <div className="footer-legal">
+              <a href="#" className="footer-link footer-legal-link">Politique de confidentialité</a>
+            </div>
+          </div>
+          
+          <div className="footer-separator"></div>
+          
+          <div className="footer-column footer-logo-column">
+            <img src={logoFooter} alt="Éclat Divin" className="footer-logo" />
+            <p className="footer-copyright">© 2024 Éclat Divin</p>
+          </div>
         </div>
       </div>
     </footer>
