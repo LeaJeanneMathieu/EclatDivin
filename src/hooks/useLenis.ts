@@ -6,8 +6,8 @@ export function useLenis() {
     const lenis = new Lenis({
       duration: 0.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
-      smoothTouch: false,
+      smoothWheel: true,
+      syncTouch: false,
       touchMultiplier: 2,
       wheelMultiplier: 1.5,
     });
