@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import profil1 from '../../assets/profil1.png';
 import profil2 from '../../assets/profil2.png';
 import profil3 from '../../assets/profil3.png';
+import { Reveal } from '@/components/Reveal';
 
 const items = [
   { name: 'Michele', avatar: profil1, text: 'Lorem ipsum dolor sit amet consectetur. Cras aliquet massa.' },
@@ -11,22 +11,28 @@ const items = [
 
 export function Testimonials() {
   return (
-    <section className="section" style={{ background: 'var(--bg-alt)' }}>
+    <section className="section" style={{ background: '#F6EBD7' }}>
       <div className="container">
-        <h3 style={{ textAlign: 'center', marginBottom: 24, fontWeight: 500 }}>Elles ont révélé leur éclat intérieur</h3>
-        <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <Reveal>
+          <div style={{ marginBottom: 72, textAlign: 'center' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: 10, fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif", fontWeight: 400, fontStyle: 'italic', fontSize: '32px', display: 'inline-block', margin: '0 auto 10px' }}>Elles ont révélé leur éclat intérieur</h2>
+            <div style={{ width: 360, height: 1, background: '#CE7100', borderRadius: 1, margin: '0 auto' }} />
+          </div>
+        </Reveal>
+        <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', marginBottom: 48 }}>
           {items.map((t, i) => (
-            <motion.div key={t.name} className="card" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} style={{ padding: 20 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <img src={t.avatar} alt={t.name} style={{ width: 48, height: 48, borderRadius: '50%' }} />
-                <div>
-                  <div style={{ fontWeight: 600 }}>{t.name}</div>
-                  <div style={{ color: '#e1b955' }}>★★★★★</div>
-                </div>
+            <Reveal key={t.name} delay={i * 0.12}>
+              <div className="card" style={{ padding: '40px 30px', minHeight: '280px', background: '#D5B895', border: '1px solid white', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <img src={t.avatar} alt={t.name} style={{ width: 80, height: 80, borderRadius: '50%', marginBottom: 20 }} />
+                <p className="muted" style={{ textAlign: 'left', width: '100%', marginBottom: 20, flex: 1 }}>{t.text}</p>
+                <div style={{ color: 'white', marginBottom: 20 }}>★★★★★</div>
+                <div style={{ fontStyle: 'italic', textAlign: 'center' }}>{t.name}</div>
               </div>
-              <p className="muted" style={{ marginTop: 12 }}>{t.text}</p>
-            </motion.div>
+            </Reveal>
           ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 32 }}>
+          <button className="btn btn-view-more" style={{ fontSize: 20, padding: '16px 32px', borderRadius: 0, fontWeight: 50 }}>VIEW MORE</button>
         </div>
       </div>
     </section>
