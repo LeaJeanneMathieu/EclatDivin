@@ -11,10 +11,18 @@ export function Header() {
         <span className="brand">ECLAT DIVIN</span>
 
         <nav className="desktop-nav" aria-label="Navigation principale">
-          <a href="#services" className="nav-link">SERVICES</a>
-          <a href="#about" className="nav-link">ABOUT</a>
-          <a href="#contact" className="nav-link">CONTACT</a>
-          <a href="#book" className="nav-link">BOOK RESERVATION</a>
+          <a href="#services" className="nav-link">
+            SERVICES
+          </a>
+          <a href="#about" className="nav-link">
+            ABOUT
+          </a>
+          <a href="#contact" className="nav-link">
+            CONTACT
+          </a>
+          <a href="#book" className="nav-link">
+            BOOK RESERVATION
+          </a>
         </nav>
 
         <button
@@ -24,7 +32,16 @@ export function Header() {
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             {menuOpen ? (
               // X icon
               <>
@@ -45,10 +62,18 @@ export function Header() {
 
       {menuOpen && (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Navigation mobile">
-          <a href="#services" className="nav-link" onClick={closeMenu}>SERVICES</a>
-          <a href="#about" className="nav-link" onClick={closeMenu}>ABOUT</a>
-          <a href="#contact" className="nav-link" onClick={closeMenu}>CONTACT</a>
-          <a href="#book" className="nav-link" onClick={closeMenu}>BOOK RESERVATION</a>
+          <a href="#services" className="nav-link" onClick={closeMenu}>
+            SERVICES
+          </a>
+          <a href="#about" className="nav-link" onClick={closeMenu}>
+            ABOUT
+          </a>
+          <a href="#contact" className="nav-link" onClick={closeMenu}>
+            CONTACT
+          </a>
+          <a href="#book" className="nav-link" onClick={closeMenu}>
+            BOOK RESERVATION
+          </a>
         </nav>
       )}
     </header>

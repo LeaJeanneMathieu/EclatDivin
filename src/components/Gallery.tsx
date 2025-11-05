@@ -33,24 +33,16 @@ function GalleryItem({ src, index, direction, onImageClick }: GalleryItemProps) 
   // Parallax individuel pour chaque image
   const { scrollYProgress } = useScroll({
     target: itemRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   // Parallax horizontal et vertical pour chaque image
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [direction.x * 0.3, -direction.x * 0.3]
-  );
-  const y = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [direction.y * 0.5, -direction.y * 0.5]
-  );
+  const x = useTransform(scrollYProgress, [0, 1], [direction.x * 0.3, -direction.x * 0.3]);
+  const y = useTransform(scrollYProgress, [0, 1], [direction.y * 0.5, -direction.y * 0.5]);
   const rotate = useTransform(
     scrollYProgress,
     [0, 1],
-    [direction.rotate * 0.3, -direction.rotate * 0.3]
+    [direction.rotate * 0.3, -direction.rotate * 0.3],
   );
 
   return (
@@ -69,27 +61,26 @@ function GalleryItem({ src, index, direction, onImageClick }: GalleryItemProps) 
         rotate: direction.rotate,
         scale: 0.9,
       }}
-      animate={isInView ? {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        rotate: 0,
-        scale: 1,
-      } : {}}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              rotate: 0,
+              scale: 1,
+            }
+          : {}
+      }
       transition={{
         duration: 0.5,
-        ease: "easeOut",
+        ease: 'easeOut',
         delay: index * 0.08,
       }}
       onClick={onImageClick}
     >
       <div className="gallery-image-wrapper">
-        <img
-          src={src}
-          alt={`gal-${index + 1}`}
-          className="gallery-image"
-          loading="lazy"
-        />
+        <img src={src} alt={`gal-${index + 1}`} className="gallery-image" loading="lazy" />
       </div>
     </motion.div>
   );
@@ -103,7 +94,7 @@ export function Gallery() {
   // Scroll progress pour la section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
   // Parallax pour le container
@@ -216,15 +207,18 @@ export function Gallery() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                className="lightbox-close"
-                onClick={closeLightbox}
-                aria-label="Fermer"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <button className="lightbox-close" onClick={closeLightbox} aria-label="Fermer">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -248,7 +242,14 @@ export function Gallery() {
                   }}
                   aria-label="Image précédente"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <polyline points="15 18 9 12 15 6"></polyline>
                   </svg>
                 </button>
@@ -263,7 +264,14 @@ export function Gallery() {
                   }}
                   aria-label="Image suivante"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
                 </button>
@@ -275,5 +283,3 @@ export function Gallery() {
     </>
   );
 }
-
-

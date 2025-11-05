@@ -18,5 +18,3 @@ export function Reveal({ children, delay = 0, y = 20 }: RevealProps) {
     </motion.div>
   );
 }
-
-

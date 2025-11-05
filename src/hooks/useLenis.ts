@@ -13,7 +13,7 @@ export function useLenis() {
     });
 
     let rafId: number;
-    
+
     function raf(time: number) {
       lenis.raf(time);
       rafId = requestAnimationFrame(raf);
@@ -27,4 +27,3 @@ export function useLenis() {
     };
   }, []);
 }
-
