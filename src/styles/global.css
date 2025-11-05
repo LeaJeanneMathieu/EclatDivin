@@ -301,6 +301,13 @@ h1, h2, h3, h4 {
   letter-spacing: 1.5px;
 }
 
+/* Ensure About card can show the portrait outside its bounds */
+.card.about-card {
+  overflow: visible;
+  background: transparent;
+  border-radius: 0;
+}
+
 .muted { color: var(--muted); }
 
 /* Services layout */
@@ -320,6 +327,8 @@ h1, h2, h3, h4 {
 @media (min-width: 1025px) {
   .services-grid { grid-template-columns: repeat(3, 360px); gap: 96px; }
   .service-card { width: 360px; }
+  /* About: prevent small portrait image from being clipped on desktop */
+  .about-portrait { right: -70px; top: 50%; transform: translateY(-50%); z-index: 3; }
 }
 
 @media (max-width: 1024px) {
